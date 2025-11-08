@@ -41,7 +41,8 @@ bot.onText(/\/price (.+)/, async (msg, match) => {
 });
 
 
-//setInterval(sendAutoUpdate, 15 * 60 * 1000); // هر ۱۵ دقیقه {
+// ==== دریافت قیمت رمزارز + NFT ( هر5 دقیقه) ====
+async function sendAutoUpdate() {
   try {
     const cryptoUrl =
       "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd";
@@ -90,8 +91,8 @@ bot.onText(/\/price (.+)/, async (msg, match) => {
   }
 }
 
-// هر ۱ ساعت ارسال کن
-setInterval(sendAutoUpdate, 60 * 60 * 1000);
+// هر ۵ دقیقه ارسال کن
+setInterval(sendAutoUpdate, 5 * 60 * 1000);
 
 
 // ==== سرور برای Render ====
